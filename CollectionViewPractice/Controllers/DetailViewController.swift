@@ -9,19 +9,62 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    var movieInfo = MovieInfo()
     
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var titleReleaseRuntime: UILabel!
+    @IBOutlet weak var rate: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var movieDescription: UITextView!
     
+    var transferMovieimage: UIImage?
+    var transferTitleReleaseRuntime: String?
+    var transferRate: String?
+    var transferLike: Bool?
+    var transferMovieDescription: String?
+    var indexPath: Int?
     
-    var transferTextLabel: String?
-    
+    let heartIcon:UIImage? = UIImage(systemName: "heart")
+    let heartIconFilled:UIImage? = UIImage(systemName: "heart.fill")
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = transferTextLabel
-        textLabel.text = transferTextLabel
-
+        
+        movieImage.image = transferMovieimage
+        titleReleaseRuntime.text = transferTitleReleaseRuntime
+        movieDescription.text = transferMovieDescription
+        
+        //싱글톤객체로 생성한 정보 갖고와도 다시 디테일뷰로 진입하면 false 로 바뀜
+        setupLikebutton()
+    }
+    
+    func setupLikebutton() {
+        if let index = indexPath {
+            if movieInfo.movie[index].like {
+                likeButton.setImage(heartIconFilled, for: .normal)
+            } else if movieInfo.movie[index].like {
+                likeButton.setImage(heartIcon, for: .normal)
+            }
+            print(movieInfo.movie[index].like)
+        }
     }
 
-
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        if let index = indexPath {
+            if movieInfo.movie[index].like == true {
+                likeButton.setImage(heartIcon, for: .normal)
+                movieInfo.movie[index].like.toggle()
+                print(movieInfo.movie[index].like)
+            } else if movieInfo.movie[index].like == false {
+                likeButton.setImage(heartIconFilled, for: .normal)
+                movieInfo.movie[index].like.toggle()
+                print(movieInfo.movie[index].like)
+            }
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        print(#function)
+    }
 }
+
 

@@ -17,4 +17,5 @@ struct Movie {
     let runtime: Int
     let overview: String
     let rate: Double
+    var like: Bool
 }

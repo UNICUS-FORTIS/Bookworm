@@ -10,7 +10,7 @@ import UIKit
 
 final class MainCollectionViewController: UICollectionViewController {
 
-    let movieinfo = MovieInfo()
+    var movieinfo = MovieInfo.shared
     
 
     override func viewDidLoad() {
@@ -19,6 +19,10 @@ final class MainCollectionViewController: UICollectionViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: CollectionViewCell.identifier)
         
         setCollectionViewLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
     }
     
     func setCollectionViewLayout() {
@@ -49,8 +53,15 @@ final class MainCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
         let row = movieinfo.movie[indexPath.row]
         cell.cellConfiguration(row: row)
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         
         return cell
+    }
+    
+    @objc func likeButtonTapped(_ sender:UIButton) {
+        movieinfo.movie[sender.tag].like.toggle()
+        collectionView.reloadData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -58,12 +69,18 @@ final class MainCollectionViewController: UICollectionViewController {
         let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
         let movieInfoIndexPathWithRow = movieinfo.movie[indexPath.row]
-//        vc.transferToMovieImage = movieInfoIndexPathWithRow.poster
-//        vc.transferToDetailLabel = movieInfoIndexPathWithRow.title
-//        vc.transferToOpeningDateLabel = movieInfoIndexPathWithRow.releaseDate
-//        vc.transferToRunningTimeLabel = String(movieInfoIndexPathWithRow.runtime)
-//        vc.transferToRateLabel = String(movieInfoIndexPathWithRow.rate)
-        vc.transferTextLabel = movieInfoIndexPathWithRow.title
+
+        vc.transferMovieimage = movieInfoIndexPathWithRow.poster
+        vc.transferTitleReleaseRuntime = """
+        \(movieInfoIndexPathWithRow.title) |  \(movieInfoIndexPathWithRow.releaseDate) |   \(movieInfoIndexPathWithRow.rate)
+        """
+        vc.transferRate = String(movieInfoIndexPathWithRow.rate)
+        vc.transferLike = movieInfoIndexPathWithRow.like
+        vc.transferMovieDescription = movieInfoIndexPathWithRow.overview
+        vc.indexPath = indexPath.row
+       
+        
+        
         navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -77,7 +94,7 @@ final class MainCollectionViewController: UICollectionViewController {
         let vc = sb.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         //네비게이션 방식으로 접근하려면 아래 코드사용해야됨.
         let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen // 모달방식
+        nav.modalPresentationStyle = .popover // 모달방식
         present(nav,animated: true)
     }
     

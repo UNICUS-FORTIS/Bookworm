@@ -16,7 +16,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var rate: UILabel!
-    
+    @IBOutlet weak var likeButton: UIButton!
     
     
     func cellConfiguration(row: Movie) {
@@ -29,9 +29,12 @@ class CollectionViewCell: UICollectionViewCell {
         viewForLayout.clipsToBounds = true
         viewForLayout.layer.cornerRadius = 20
         viewforRateTitleLayout.backgroundColor = .clear
-        
-        
+        let blancLikeButton = UIImage(systemName: "heart")
+        let filledLikeButton = UIImage(systemName: "heart.fill")
+        row.like == true ? likeButton.setImage(filledLikeButton, for: .normal) : likeButton.setImage(blancLikeButton, for: .normal)
     }
+    
+
     
     
 //    override func awakeFromNib() {

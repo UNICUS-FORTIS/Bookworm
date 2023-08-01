@@ -20,6 +20,8 @@
 		DE4E7E7A2A779B51004B5D66 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE4E7E782A779B51004B5D66 /* CollectionViewCell.xib */; };
 		DE4E7E7F2A779C1C004B5D66 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E7E7E2A779C1C004B5D66 /* Movie.swift */; };
 		DE4E7E812A779C58004B5D66 /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E7E802A779C58004B5D66 /* MovieInfo.swift */; };
+		DEF25DDA2A7932D900A55D65 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF25DD82A7932D900A55D65 /* SearchTableViewCell.swift */; };
+		DEF25DDB2A7932D900A55D65 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEF25DD92A7932D900A55D65 /* SearchTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		DE4E7E782A779B51004B5D66 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		DE4E7E7E2A779C1C004B5D66 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		DE4E7E802A779C58004B5D66 /* MovieInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
+		DEF25DD82A7932D900A55D65 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		DEF25DD92A7932D900A55D65 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 				DE4E7E652A779A53004B5D66 /* Main.storyboard */,
 				DE4E7E772A779B51004B5D66 /* CollectionViewCell.swift */,
 				DE4E7E782A779B51004B5D66 /* CollectionViewCell.xib */,
+				DEF25DD82A7932D900A55D65 /* SearchTableViewCell.swift */,
+				DEF25DD92A7932D900A55D65 /* SearchTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 				DE4E7E692A779A54004B5D66 /* Assets.xcassets in Resources */,
 				DE4E7E7A2A779B51004B5D66 /* CollectionViewCell.xib in Resources */,
 				DE4E7E672A779A53004B5D66 /* Main.storyboard in Resources */,
+				DEF25DDB2A7932D900A55D65 /* SearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +200,7 @@
 				DE4E7E602A779A53004B5D66 /* AppDelegate.swift in Sources */,
 				DE4E7E622A779A53004B5D66 /* SceneDelegate.swift in Sources */,
 				DE0D8A1A2A77C0A9004A2759 /* Extension+UIColor.swift in Sources */,
+				DEF25DDA2A7932D900A55D65 /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
