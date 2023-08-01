@@ -36,6 +36,7 @@ class SearchTableViewCell: UITableViewCell {
         movieTitle.text = row.title
         openingDate.text = row.releaseDate
         rate.text = String(row.rate)
+        print(#function)
     }
     
     
