@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    static let identifier = "DetailViewController"
     var movieInfo = MovieInfo()
     
     @IBOutlet weak var movieImage: UIImageView!
@@ -27,6 +28,7 @@ class DetailViewController: UIViewController {
     let heartIcon:UIImage? = UIImage(systemName: "heart")
     let heartIconFilled:UIImage? = UIImage(systemName: "heart.fill")
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,7 @@ class DetailViewController: UIViewController {
         //싱글톤객체로 생성한 정보 갖고와도 다시 디테일뷰로 진입하면 false 로 바뀜
         setupLikebutton()
     }
+    
     
     func setupLikebutton() {
         if let index = indexPath {
@@ -61,9 +64,6 @@ class DetailViewController: UIViewController {
                 print(movieInfo.movie[index].like)
             }
         }
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        print(#function)
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 
 final class MainCollectionViewController: UICollectionViewController {
 
-    var movieinfo = MovieInfo.shared
+    var movieInfo = MovieInfo.shared
     
 
     override func viewDidLoad() {
@@ -45,13 +45,13 @@ final class MainCollectionViewController: UICollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movieinfo.movie.count
+        return movieInfo.movie.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
-        let row = movieinfo.movie[indexPath.row]
+        let row = movieInfo.movie[indexPath.row]
         cell.cellConfiguration(row: row)
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
@@ -60,7 +60,7 @@ final class MainCollectionViewController: UICollectionViewController {
     }
     
     @objc func likeButtonTapped(_ sender:UIButton) {
-        movieinfo.movie[sender.tag].like.toggle()
+        movieInfo.movie[sender.tag].like.toggle()
         collectionView.reloadData()
     }
     
@@ -68,7 +68,7 @@ final class MainCollectionViewController: UICollectionViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
-        let movieInfoIndexPathWithRow = movieinfo.movie[indexPath.row]
+        let movieInfoIndexPathWithRow = movieInfo.movie[indexPath.row]
 
         vc.transferMovieimage = movieInfoIndexPathWithRow.poster
         vc.transferTitleReleaseRuntime = """

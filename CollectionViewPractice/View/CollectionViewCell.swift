@@ -25,7 +25,7 @@ class CollectionViewCell: UICollectionViewCell {
         movieTitle.textColor = .white
         rate.text = String(row.rate)
         rate.textColor = .white
-        viewForLayout.backgroundColor = UIColor.random()
+        viewForLayout.backgroundColor = row.color
         viewForLayout.clipsToBounds = true
         viewForLayout.layer.cornerRadius = 20
         viewforRateTitleLayout.backgroundColor = .clear
@@ -34,7 +34,6 @@ class CollectionViewCell: UICollectionViewCell {
         row.like == true ? likeButton.setImage(filledLikeButton, for: .normal) : likeButton.setImage(blancLikeButton, for: .normal)
     }
     
-
     
     
 //    override func awakeFromNib() {

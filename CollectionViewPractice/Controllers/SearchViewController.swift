@@ -47,26 +47,36 @@ class SearchViewController: UIViewController {
         
         searchBar.searchTextField.addTarget(self, action: #selector(findTitle), for: .editingChanged)
     }
-    
+
     @objc func findTitle(_ word:UISearchBar) {
         guard let text = searchBar.text else { return }
-        let matched = movieInfo.movie.filter { $0.title.contains(text) }.map { $0.title }
         
+        var previousLetters:String = ""
+        
+        let matched = movieInfo.movie.filter { $0.title.contains(text) }.map { $0.title }
+        if text == previousLetters {
+            return
+        }
         for i in matched {
             if !resultArray.contains(i) {
                 resultArray.insert(i, at: 0)
                 print(resultArray)
-                //아래 코드 문제 있음
-//            } else if resultArray.contains(matched) {
-//                if let index = resultArray.firstIndex(of: i) {
-//                    resultArray.remove(at: index)
-//                }
-            } else if searchBar.searchTextField.text == "" {
-                resultArray.removeAll(keepingCapacity: true)
-                print(resultArray)
             }
         }
+        if matched.isEmpty || text.isEmpty {
+            resultArray.removeAll(keepingCapacity: true)
+        }
+        if !previousLetters.isEmpty {
+            let previousMatched = movieInfo.movie.filter { $0.title.contains(previousLetters) }.map { $0.title }
+            for i in previousMatched {
+                if !matched.contains(i), let index = resultArray.firstIndex(of: i) {
+                    resultArray.remove(at: index)
+                }
+            }
+        }
+        previousLetters = text
     }
+    
     
     @objc func closeWindow() {
         dismiss(animated: true)

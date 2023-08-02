@@ -7,7 +7,7 @@
 
 import UIKit
 
-
+// MARK: - discussion - How to avoid including UIkit framework properties in Foundation properties.
 struct Movie {
     var poster: UIImage? {
         return UIImage(named: "\(title).png") ?? UIImage(systemName: "star")
@@ -18,4 +18,5 @@ struct Movie {
     let overview: String
     let rate: Double
     var like: Bool
+    var color: UIColor
 }
