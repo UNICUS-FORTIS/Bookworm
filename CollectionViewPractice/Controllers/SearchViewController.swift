@@ -54,6 +54,7 @@ class SearchViewController: UIViewController {
         var previousLetters:String = ""
         
         let matched = movieInfo.movie.filter { $0.title.contains(text) }.map { $0.title }
+        print(matched)
         if text == previousLetters {
             return
         }

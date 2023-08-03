@@ -18,11 +18,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var movieDescription: UITextView!
     
+    
+    
+    // Movie
     var transferMovieimage: UIImage?
     var transferTitleReleaseRuntime: String?
     var transferRate: String?
     var transferLike: Bool?
     var transferMovieDescription: String?
+    
     var indexPath: Int?
     
     let heartIcon:UIImage? = UIImage(systemName: "heart")
@@ -64,6 +68,9 @@ class DetailViewController: UIViewController {
                 print(movieInfo.movie[index].like)
             }
         }
+    }
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
     }
 }
 

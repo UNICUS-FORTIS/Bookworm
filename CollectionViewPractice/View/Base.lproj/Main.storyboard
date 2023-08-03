@@ -161,14 +161,7 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="도서목록" image="book" catalog="system" id="aCK-U0-0cb"/>
-                    <navigationItem key="navigationItem" title="Louie의 BlueRay" id="F6h-JU-tk4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Bxi-u9-7WB">
-                            <color key="tintColor" systemColor="systemPinkColor"/>
-                            <connections>
-                                <action selector="searchBarTapped:" destination="lgT-o2-rHI" id="zIy-qC-Ndb"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Louie의 BlueRay" id="F6h-JU-tk4"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1e-CS-1q0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,6 +210,20 @@
                                     <action selector="likeButtonTapped:" destination="ttY-gk-10y" eventType="touchUpInside" id="tFK-e5-eG9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCa-ko-TE2">
+                                <rect key="frame" x="20" y="59" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0lI-U7-OXn"/>
+                                    <constraint firstAttribute="width" constant="30" id="5i8-Xh-Nvm"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system">
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="ttY-gk-10y" eventType="touchUpInside" id="spb-pY-35S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fjx-m5-6wH"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -224,6 +231,7 @@
                             <constraint firstItem="b1a-Sd-f0X" firstAttribute="top" secondItem="YPW-Lt-y31" secondAttribute="bottom" constant="20" id="86g-dU-RLk"/>
                             <constraint firstItem="jyD-Wo-Ab6" firstAttribute="width" relation="greaterThanOrEqual" secondItem="3BL-0d-sLf" secondAttribute="width" multiplier="0.7" id="8XV-La-qVk"/>
                             <constraint firstItem="fjx-m5-6wH" firstAttribute="bottom" secondItem="b1a-Sd-f0X" secondAttribute="bottom" constant="10" id="BtQ-xU-uW9"/>
+                            <constraint firstItem="RCa-ko-TE2" firstAttribute="leading" secondItem="fjx-m5-6wH" secondAttribute="leading" constant="20" id="FMf-gL-EXm"/>
                             <constraint firstItem="fjx-m5-6wH" firstAttribute="trailing" secondItem="b1a-Sd-f0X" secondAttribute="trailing" constant="20" id="HGQ-Jq-86K"/>
                             <constraint firstItem="fjx-m5-6wH" firstAttribute="trailing" secondItem="TVi-2i-JjJ" secondAttribute="trailing" constant="20" id="J8o-E9-X1r"/>
                             <constraint firstItem="jyD-Wo-Ab6" firstAttribute="top" secondItem="TVi-2i-JjJ" secondAttribute="bottom" constant="20" id="JJK-pV-QYH"/>
@@ -232,6 +240,7 @@
                             <constraint firstItem="fjx-m5-6wH" firstAttribute="trailing" secondItem="YPW-Lt-y31" secondAttribute="trailing" constant="20" id="bwK-oP-8Sz"/>
                             <constraint firstItem="YPW-Lt-y31" firstAttribute="leading" secondItem="jyD-Wo-Ab6" secondAttribute="trailing" constant="10" id="eOh-J8-ezE"/>
                             <constraint firstItem="jyD-Wo-Ab6" firstAttribute="leading" secondItem="fjx-m5-6wH" secondAttribute="leading" constant="20" id="gK7-mz-O3P"/>
+                            <constraint firstItem="RCa-ko-TE2" firstAttribute="top" secondItem="fjx-m5-6wH" secondAttribute="top" id="ks6-Jc-eaP"/>
                             <constraint firstItem="TVi-2i-JjJ" firstAttribute="top" secondItem="fjx-m5-6wH" secondAttribute="top" constant="20" id="m90-fC-QoG"/>
                             <constraint firstItem="TVi-2i-JjJ" firstAttribute="leading" secondItem="fjx-m5-6wH" secondAttribute="leading" constant="20" id="vgj-wU-FN0"/>
                         </constraints>
@@ -256,6 +265,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sb7-vY-gpu">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="compactScrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -273,6 +287,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Knm-U5-Kh0"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gdf-Ol-LCG">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -309,6 +324,7 @@
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

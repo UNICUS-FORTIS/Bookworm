@@ -82,20 +82,20 @@ extension LookAroundViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: DetailViewController.identifier) as! DetailViewController
-        let movieInfoIndexPathWithItem = movieInfo.movie[indexPath.item]
+        let movieInfoIndexPathWithRow = movieInfo.movie[indexPath.item]
         
-        vc.transferMovieimage = movieInfoIndexPathWithItem.poster
+        vc.transferMovieimage = movieInfoIndexPathWithRow.poster
         vc.transferTitleReleaseRuntime = """
-        \(movieInfoIndexPathWithItem.title) |  \(movieInfoIndexPathWithItem.releaseDate) |   \(movieInfoIndexPathWithItem.rate)
+        \(movieInfoIndexPathWithRow.title) |  \(movieInfoIndexPathWithRow.releaseDate) |   \(movieInfoIndexPathWithRow.rate)
         """
-        vc.transferRate = String(movieInfoIndexPathWithItem.rate)
-        vc.transferLike = movieInfoIndexPathWithItem.like
-        vc.transferMovieDescription = movieInfoIndexPathWithItem.overview
-        vc.indexPath = indexPath.item
+        vc.transferRate = String(movieInfoIndexPathWithRow.rate)
+        vc.transferLike = movieInfoIndexPathWithRow.like
+        vc.transferMovieDescription = movieInfoIndexPathWithRow.overview
+        vc.indexPath = indexPath.row
         
-        present(vc, animated: true)
-    }
-    
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav,animated: true)    }
 }
 
 // MARK: - Table View DataSource
@@ -135,7 +135,8 @@ extension LookAroundViewController: UITableViewDelegate {
         vc.transferMovieDescription = movieInfoIndexPathWithRow.overview
         vc.indexPath = indexPath.row
         
-        
-        present(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.pushViewController(nav, animated: true)
+//        present(nav,animated: true)
     }
 }
