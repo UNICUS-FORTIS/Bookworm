@@ -93,9 +93,10 @@ extension LookAroundViewController: UICollectionViewDelegate {
         vc.transferMovieDescription = movieInfoIndexPathWithRow.overview
         vc.indexPath = indexPath.row
         
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        present(nav,animated: true)    }
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - Table View DataSource
@@ -123,6 +124,8 @@ extension LookAroundViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: DetailViewController.identifier) as! DetailViewController
+        navigationController?.pushViewController(vc, animated: true)
+
         
         let movieInfoIndexPathWithRow = movieInfo.movie[indexPath.row]
         
@@ -135,8 +138,5 @@ extension LookAroundViewController: UITableViewDelegate {
         vc.transferMovieDescription = movieInfoIndexPathWithRow.overview
         vc.indexPath = indexPath.row
         
-        let nav = UINavigationController(rootViewController: vc)
-        nav.pushViewController(nav, animated: true)
-//        present(nav,animated: true)
     }
 }

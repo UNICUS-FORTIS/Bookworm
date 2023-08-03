@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
     static let identifier = "DetailViewController"
     var movieInfo = MovieInfo()
     
@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
     
     let heartIcon:UIImage? = UIImage(systemName: "heart")
     let heartIconFilled:UIImage? = UIImage(systemName: "heart.fill")
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class DetailViewController: UIViewController {
             print(movieInfo.movie[index].like)
         }
     }
-
+    
     @IBAction func likeButtonTapped(_ sender: UIButton) {
         if let index = indexPath {
             if movieInfo.movie[index].like == true {
@@ -69,9 +69,4 @@ class DetailViewController: UIViewController {
             }
         }
     }
-    @IBAction func closeButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
 }
-
-

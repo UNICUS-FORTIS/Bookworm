@@ -89,8 +89,11 @@ final class MainCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        let nav = UINavigationController(rootViewController: vc)
         let movieInfoIndexPathWithRow = movieInfo.movie[indexPath.row]
+        nav.modalPresentationStyle = .fullScreen
         
+        navigationController?.pushViewController(vc, animated: true)
         // Movie
         vc.transferMovieimage = movieInfoIndexPathWithRow.poster
         vc.transferTitleReleaseRuntime = """
@@ -101,7 +104,7 @@ final class MainCollectionViewController: UICollectionViewController {
         vc.transferMovieDescription = movieInfoIndexPathWithRow.overview
         vc.indexPath = indexPath.row
         
-        navigationController?.pushViewController(vc, animated: true)
+        
     }
     //    @IBAction func searchBarTapped(_ sender: UIBarButtonItem) {
     //
