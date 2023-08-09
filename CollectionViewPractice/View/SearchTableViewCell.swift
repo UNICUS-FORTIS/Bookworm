@@ -12,10 +12,10 @@ class SearchTableViewCell: UITableViewCell {
     static let identifier = "SearchTableViewCell"
 
     
-    @IBOutlet weak var movieImage: UIImageView!
-    @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var openingDate: UILabel!
-    @IBOutlet weak var rate: UILabel!
+    @IBOutlet weak var poster: UIImageView!
+    @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var publisher: UILabel!
+    @IBOutlet weak var price: UILabel!
     
     
     
@@ -31,13 +31,13 @@ class SearchTableViewCell: UITableViewCell {
 //    }
     
     
-    func cellConfiguration(_ row: Movie) {
-        movieImage.image = row.poster
-        movieTitle.text = row.title
-        openingDate.text = row.releaseDate
-        rate.text = String(row.rate)
-        print(#function)
-    }
+//    func cellConfiguration(_ row: Movie) {
+//        movieImage.image = row.poster
+//        movieTitle.text = row.title
+//        openingDate.text = row.releaseDate
+//        rate.text = String(row.rate)
+//        print(#function)
+//    }
     
     
     

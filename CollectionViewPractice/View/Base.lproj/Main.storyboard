@@ -89,18 +89,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0X2-AZ-TCN">
-                                <rect key="frame" x="0.0" y="59" width="393" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Zqr-hh-dR1"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hFk-T9-TAG"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="alf-KC-fiY">
-                                <rect key="frame" x="0.0" y="119" width="393" height="699"/>
+                                <rect key="frame" x="0.0" y="159" width="393" height="659"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="5wN-Ps-e4g">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="104"/>
@@ -108,28 +98,35 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </tableView>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="k4i-FZ-q6g">
+                                <rect key="frame" x="0.0" y="103" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="XYK-tJ-du9"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="alf-KC-fiY" secondAttribute="trailing" id="4eE-HD-Hls"/>
                             <constraint firstItem="alf-KC-fiY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7XR-Kp-hfm"/>
-                            <constraint firstItem="alf-KC-fiY" firstAttribute="top" secondItem="0X2-AZ-TCN" secondAttribute="bottom" id="CYl-B6-o5q"/>
-                            <constraint firstItem="0X2-AZ-TCN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gnj-U9-1HT"/>
-                            <constraint firstItem="0X2-AZ-TCN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Uvy-N6-0cJ"/>
-                            <constraint firstItem="0X2-AZ-TCN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kFi-pb-zm2"/>
+                            <constraint firstItem="k4i-FZ-q6g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7fZ-fJ-yy1"/>
+                            <constraint firstItem="k4i-FZ-q6g" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JAm-yX-bow"/>
+                            <constraint firstItem="alf-KC-fiY" firstAttribute="top" secondItem="k4i-FZ-q6g" secondAttribute="bottom" id="TiD-3l-gtM"/>
+                            <constraint firstItem="k4i-FZ-q6g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="W8N-gd-OCw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="alf-KC-fiY" secondAttribute="bottom" id="zJx-Ce-6ro"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aoH-a0-Xjb"/>
                     <connections>
-                        <outlet property="searchBar" destination="0X2-AZ-TCN" id="7Gj-xo-oNL"/>
+                        <outlet property="searchBar" destination="k4i-FZ-q6g" id="k2V-2M-aAH"/>
                         <outlet property="tableView" destination="alf-KC-fiY" id="aYI-4d-9hd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1178" y="-711"/>
+            <point key="canvasLocation" x="2730.5343511450383" y="-440.14084507042259"/>
         </scene>
         <!--Louie의 BlueRay-->
         <scene sceneID="iN4-td-k3z">
@@ -321,6 +318,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Mb-Iv-7hQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="482" y="251"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NDy-4Y-oMJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nxx-Mm-H9F" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OOG-3r-yPz">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aKY-Sw-S8s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdQ-Zz-Tsm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1803.8167938931297" y="-440.14084507042259"/>
         </scene>
     </scenes>
     <resources>

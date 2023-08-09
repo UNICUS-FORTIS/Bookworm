@@ -59,12 +59,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="movieImage" destination="0yy-oy-S7f" id="Zv2-Fx-0WH"/>
-                <outlet property="movieTitle" destination="oHO-Hl-peb" id="PzV-ac-8lw"/>
-                <outlet property="openingDate" destination="5Kw-Wc-deH" id="lya-5T-GUk"/>
-                <outlet property="rate" destination="yr9-BX-36O" id="6Fh-qu-0pJ"/>
+                <outlet property="bookTitle" destination="oHO-Hl-peb" id="PzV-ac-8lw"/>
+                <outlet property="poster" destination="0yy-oy-S7f" id="Zv2-Fx-0WH"/>
+                <outlet property="price" destination="yr9-BX-36O" id="6Fh-qu-0pJ"/>
+                <outlet property="publisher" destination="5Kw-Wc-deH" id="lya-5T-GUk"/>
             </connections>
-            <point key="canvasLocation" x="41" y="-12"/>
+            <point key="canvasLocation" x="39.694656488549619" y="-12.323943661971832"/>
         </tableViewCell>
     </objects>
 </document>

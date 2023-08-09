@@ -42,6 +42,7 @@ class DetailViewController: UIViewController {
         
         //싱글톤객체로 생성한 정보 갖고와도 다시 디테일뷰로 진입하면 false 로 바뀜
         setupLikebutton()
+        likeButton.imageView
     }
     
     
