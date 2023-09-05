@@ -37,6 +37,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         return label
     }()
+    
     private var priceLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
@@ -77,6 +78,10 @@ class MainCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(mainImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(priceLabel)
+        DispatchQueue.main.async {
+            self.mainImageView.layer.cornerRadius = self.mainImageView.frame.width / 6
+            self.mainImageView.clipsToBounds = true
+        }
     }
     
     private func setConstraints() {

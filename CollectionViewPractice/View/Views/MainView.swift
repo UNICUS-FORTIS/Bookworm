@@ -16,7 +16,6 @@ class MainView: UIView {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         cv.register(MainCollectionViewCell.self,
                       forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
-        cv.showsVerticalScrollIndicator = false
         return cv
     }()
     

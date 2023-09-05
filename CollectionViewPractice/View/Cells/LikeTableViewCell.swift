@@ -7,15 +7,14 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 class LikeTableViewCell: UITableViewCell {
     
+    var bookImage: UIImage?
     var bookData: BookTable? {
         didSet {
-            guard let data = bookData?.thumbnail else { return }
-            let url = URL(string: data)
-            self.poster.kf.setImage(with: url)
-            
+            poster.image = bookImage
             titleLabel.text = bookData?.title
             priceLabel.text = "\(makingCurrency(price: bookData?.price ?? 0))원"
             contentLabel.text = bookData?.contents
@@ -23,7 +22,7 @@ class LikeTableViewCell: UITableViewCell {
     }
     
     let poster: UIImageView = {
-       let view = UIImageView()
+        let view = UIImageView()
         view.contentMode = .scaleToFill
         return view
     }()
@@ -57,8 +56,8 @@ class LikeTableViewCell: UITableViewCell {
     lazy var stackView: UIStackView = {
         let sv = UIStackView(arrangedSubviews: [titleLabel, priceLabel, contentLabel])
         sv.axis = .vertical
-        sv.alignment = .leading
-        sv.distribution = .fillEqually
+        sv.alignment = .top
+        sv.distribution = .fillProportionally
         sv.spacing = 4
         return sv
     }()
@@ -78,6 +77,10 @@ class LikeTableViewCell: UITableViewCell {
     private func configure() {
         contentView.addSubview(poster)
         contentView.addSubview(stackView)
+        DispatchQueue.main.async {
+            self.poster.layer.cornerRadius = self.poster.frame.width / 6
+            self.poster.clipsToBounds = true
+        }
     }
     
     private func setConstraints() {
@@ -94,7 +97,7 @@ class LikeTableViewCell: UITableViewCell {
             make.leading.equalTo(poster.snp.trailing).offset(spacing)
             make.centerY.equalTo(poster)
             make.height.equalTo(contentView)
-            make.trailing.equalTo(contentView).offset(spacing)
+            make.trailing.equalTo(contentView).inset(spacing)
         }
     }
     

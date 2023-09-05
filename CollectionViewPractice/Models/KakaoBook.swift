@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - MyCodable
 struct KakaoBook: Codable {
-    let documents: [KakaoResults]
+    var documents: [KakaoResults]
     let meta: Meta
 }
 
