@@ -26,14 +26,12 @@ final class LikeViewController: UIViewController  {
     }
     
     private func connectRealm() {
-        print(#function)
         let realm = try! Realm()
         self.tasks = realm.objects(BookTable.self).sorted(byKeyPath: "title", ascending: true)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(#function)
         super.viewWillAppear(animated)
         likeView.tableView.reloadData()
     }

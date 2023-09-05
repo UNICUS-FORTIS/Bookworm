@@ -28,10 +28,11 @@ final class MainViewController: UIViewController {
         mainView.collectionView.delegate = self
         mainView.collectionView.prefetchDataSource = self
         navigationController?.hidesBarsOnSwipe = true
-        print(realm.configuration.fileURL)
+//        print(realm.configuration.fileURL)
     }
     
     private func setupSearchBar() {
+        mainView.searchBar.becomeFirstResponder()
         mainView.searchBar.delegate = self
         mainView.searchBar.showsCancelButton = true
         mainView.searchBar.placeholder = "검색어를 입력하세요"
@@ -142,6 +143,7 @@ extension MainViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         resultArray?.documents.removeAll(keepingCapacity: true)
+        searchBar.resignFirstResponder()
         
         guard let query = searchBar.text else { return }
         
@@ -169,8 +171,9 @@ extension MainViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
         resultArray?.documents.removeAll(keepingCapacity: true)
         mainView.collectionView.reloadData()
+        searchBar.text = ""
+        searchBar.becomeFirstResponder()
     }
 }
