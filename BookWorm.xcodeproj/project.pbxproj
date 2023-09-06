@@ -12,6 +12,7 @@
 		DE4E7E622A779A53004B5D66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E7E612A779A53004B5D66 /* SceneDelegate.swift */; };
 		DE4E7E692A779A54004B5D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE4E7E682A779A54004B5D66 /* Assets.xcassets */; };
 		DE4E7E6C2A779A54004B5D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4E7E6A2A779A54004B5D66 /* LaunchScreen.storyboard */; };
+		DE7D185B2AA89D5B005927D0 /* BookTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D185A2AA89D5B005927D0 /* BookTableRepository.swift */; };
 		DE9E39042AA5EA8A001AD9A4 /* Extension+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9E39032AA5EA8A001AD9A4 /* Extension+URL.swift */; };
 		DE9E39072AA5EBF2001AD9A4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9E39062AA5EBF2001AD9A4 /* Network.swift */; };
 		DE9E39092AA5ECCE001AD9A4 /* KakaoBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9E39082AA5ECCE001AD9A4 /* KakaoBook.swift */; };
@@ -40,6 +41,7 @@
 		DE4E7E682A779A54004B5D66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE4E7E6B2A779A54004B5D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE4E7E6D2A779A54004B5D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE7D185A2AA89D5B005927D0 /* BookTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableRepository.swift; sourceTree = "<group>"; };
 		DE9E39032AA5EA8A001AD9A4 /* Extension+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+URL.swift"; sourceTree = "<group>"; };
 		DE9E39062AA5EBF2001AD9A4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DE9E39082AA5ECCE001AD9A4 /* KakaoBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoBook.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				DEA740512A821943003AB194 /* Security */,
 				DE9E390C2AA5F2CF001AD9A4 /* App */,
 				DE9E39022AA5EA0A001AD9A4 /* Extensions */,
+				DE9E39052AA5EBDB001AD9A4 /* APIService */,
 				DEA740572A822657003AB194 /* Helper */,
 				DE4E7E7B2A779BD9004B5D66 /* Models */,
 				DE9E39122AA5F9E4001AD9A4 /* View */,
@@ -111,6 +114,14 @@
 				DE9E39252AA63284001AD9A4 /* BookTable.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DE7D18592AA89D2B005927D0 /* BookTableRepository */ = {
+			isa = PBXGroup;
+			children = (
+				DE7D185A2AA89D5B005927D0 /* BookTableRepository.swift */,
+			);
+			path = BookTableRepository;
 			sourceTree = "<group>";
 		};
 		DE9E39022AA5EA0A001AD9A4 /* Extensions */ = {
@@ -188,8 +199,8 @@
 		DEA740572A822657003AB194 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				DE7D18592AA89D2B005927D0 /* BookTableRepository */,
 				DE9E390A2AA5EE6E001AD9A4 /* ReusableProtocol.swift */,
-				DE9E39052AA5EBDB001AD9A4 /* APIService */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -292,6 +303,7 @@
 				DE9E390B2AA5EE6E001AD9A4 /* ReusableProtocol.swift in Sources */,
 				DE9E392A2AA6441E001AD9A4 /* LikeTableViewCell.swift in Sources */,
 				DE9E39112AA5F9DC001AD9A4 /* MainViewController.swift in Sources */,
+				DE7D185B2AA89D5B005927D0 /* BookTableRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

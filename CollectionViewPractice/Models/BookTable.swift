@@ -14,11 +14,11 @@ class BookTable: Object {
 
     @Persisted var title: String
     @Persisted var price: Int
-    @Persisted var contents: String
-    @Persisted var thumbnail: String
+    @Persisted var contents: String?
+    @Persisted var thumbnail: String?
     @Persisted var url: String
     
-    convenience init(title: String, price: Int, contents:String, thumbnail: String, url: String) {
+    convenience init(title: String, price: Int, contents:String?, thumbnail: String?, url: String) {
         self.init()
         
         self.title = title

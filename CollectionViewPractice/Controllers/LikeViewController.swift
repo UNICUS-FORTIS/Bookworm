@@ -12,7 +12,8 @@ final class LikeViewController: UIViewController  {
     
     var likeView = LikeView()
     var tasks: Results<BookTable>!
-    let realm = try! Realm()
+    private let repository = BookTableRepository.shared
+
    
     override func loadView() {
         self.view = likeView
@@ -24,10 +25,9 @@ final class LikeViewController: UIViewController  {
         likeView.tableView.delegate = self
         connectRealm()
     }
-    
+    // MARK: - Refectored Method
     private func connectRealm() {
-        let realm = try! Realm()
-        self.tasks = realm.objects(BookTable.self).sorted(byKeyPath: "title", ascending: true)
+        self.tasks = repository.fetch(ketpath: "title", ascending: true)
         
     }
     
@@ -63,10 +63,10 @@ extension LikeViewController: UITableViewDelegate {
         let remove = UIContextualAction(style: .destructive, title: nil) { [weak self] action, view, completionHandler in
 
             self?.removeImageFromDocument(filename: "\(data._id)thumb.png")
-
-            try! self?.realm.write {
-                self?.realm.delete(data)
-            }
+            self?.repository.removeBookInfo(data: data)
+//            try! self?.realm.write {
+//                self?.realm.delete(data)
+//            }
             tableView.reloadData()
         }
         

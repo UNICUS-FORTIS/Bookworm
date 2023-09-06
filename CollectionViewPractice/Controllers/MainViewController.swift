@@ -15,7 +15,7 @@ final class MainViewController: UIViewController {
     private var resultArray:KakaoBook?
     private var page = 1
     private var isEnd = false
-    private let realm = try! Realm()
+    private let repository = BookTableRepository.shared
     
     override func loadView() {
         self.view = mainView
@@ -28,7 +28,8 @@ final class MainViewController: UIViewController {
         mainView.collectionView.delegate = self
         mainView.collectionView.prefetchDataSource = self
         navigationController?.hidesBarsOnSwipe = true
-//        print(realm.configuration.fileURL)
+        repository.checkSchemaVersion()
+        print("\(self.repository.realm.configuration.fileURL!)")
     }
     
     private func setupSearchBar() {
@@ -56,7 +57,7 @@ extension MainViewController: UICollectionViewDataSource {
         return cell
     }
 }
-
+// MARK: - Refectored Method
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -66,18 +67,15 @@ extension MainViewController: UICollectionViewDelegate {
                                       preferredStyle: .actionSheet)
         
         let confirm = UIAlertAction(title: "확인", style: .default) { _ in
-            let realm = try! Realm()
             let task = BookTable(title: target?.title ?? "",
                                  price: target?.price ?? 0,
                                  contents: target?.contents ?? "",
                                  thumbnail: target?.thumbnail ?? "",
                                  url: target?.url ?? "")
             
-            try! realm.write {
-                realm.add(task)
-            }
+            self.repository.createBookItem(item: task)
             
-            guard let url = URL(string: task.thumbnail) else { return }
+            guard let url = URL(string: task.thumbnail ?? "") else { return }
             DispatchQueue.global().async { [weak self] in
                 let data = try! Data(contentsOf: url)
                 let thumbnail = UIImage(data: data)
