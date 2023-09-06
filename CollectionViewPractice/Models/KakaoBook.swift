@@ -33,13 +33,6 @@ struct KakaoResults: Codable {
     }
 }
 
-//enum Publisher: String, Codable {
-//    case 서울음악출판사 = "서울음악출판사"
-//    case 에이케이커뮤니케이션즈 = "에이케이커뮤니케이션즈"
-//    case 학산문화사 = "학산문화사"
-//}
-
-
 // MARK: - Meta
 struct Meta: Codable {
     let isEnd: Bool

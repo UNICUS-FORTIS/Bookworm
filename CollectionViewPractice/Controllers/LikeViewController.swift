@@ -10,19 +10,19 @@ import RealmSwift
 
 final class LikeViewController: UIViewController  {
     
-    var likeView = LikeView()
-    var tasks: Results<BookTable>!
+    private var mainView = LikeView()
+    private var tasks: Results<BookTable>!
     private let repository = BookTableRepository.shared
 
    
     override func loadView() {
-        self.view = likeView
+        self.view = mainView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        likeView.tableView.dataSource = self
-        likeView.tableView.delegate = self
+        mainView.tableView.dataSource = self
+        mainView.tableView.delegate = self
         connectRealm()
     }
     // MARK: - Refectored Method
@@ -33,7 +33,7 @@ final class LikeViewController: UIViewController  {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        likeView.tableView.reloadData()
+        mainView.tableView.reloadData()
     }
 }
 

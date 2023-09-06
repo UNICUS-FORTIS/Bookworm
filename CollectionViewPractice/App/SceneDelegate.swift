@@ -24,17 +24,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.tabBar.tintColor = .black
         let vc1 = UINavigationController(rootViewController: MainViewController())
         let vc2 = LikeViewController()
+        let vc3 = MemoViewController()
         
         vc1.title = "BookSearch"
         vc2.title = "Like"
+        vc3.title = "Memo"
         
-        tabBarVC.setViewControllers([vc1, vc2], animated: false)
+        tabBarVC.setViewControllers([vc1, vc2, vc3], animated: false)
         tabBarVC.modalPresentationStyle = .fullScreen
         tabBarVC.tabBar.backgroundColor = .white
         
         guard let items = tabBarVC.tabBar.items else { return }
         items[0].image = UIImage(systemName: "book")
         items[1].image = UIImage(systemName: "folder")
+        items[2].image = UIImage(systemName: "pencil")
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = tabBarVC

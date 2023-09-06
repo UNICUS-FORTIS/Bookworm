@@ -21,13 +21,13 @@ class LikeTableViewCell: UITableViewCell {
         }
     }
     
-    let poster: UIImageView = {
+    private let poster: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleToFill
         return view
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -36,7 +36,7 @@ class LikeTableViewCell: UITableViewCell {
         return label
     }()
     
-    let priceLabel: UILabel = {
+    private let priceLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16)
@@ -44,7 +44,7 @@ class LikeTableViewCell: UITableViewCell {
         return label
     }()
     
-    let contentLabel: UILabel = {
+    private let contentLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 14)
@@ -53,11 +53,11 @@ class LikeTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let sv = UIStackView(arrangedSubviews: [titleLabel, priceLabel, contentLabel])
         sv.axis = .vertical
         sv.alignment = .top
-        sv.distribution = .fillProportionally
+        sv.distribution = .fillEqually
         sv.spacing = 4
         return sv
     }()

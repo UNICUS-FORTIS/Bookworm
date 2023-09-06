@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class BookTable: Object {
+final class BookTable: Object {
     
     @Persisted(primaryKey: true) var _id: ObjectId
 
@@ -17,6 +17,8 @@ class BookTable: Object {
     @Persisted var contents: String?
     @Persisted var thumbnail: String?
     @Persisted var url: String
+    @Persisted var like: Bool
+    @Persisted var userMemo: String?
     
     convenience init(title: String, price: Int, contents:String?, thumbnail: String?, url: String) {
         self.init()
@@ -26,6 +28,8 @@ class BookTable: Object {
         self.contents = contents
         self.thumbnail = thumbnail
         self.url = url
+        self.like = false
+        self.userMemo = nil
     }
     
 }
